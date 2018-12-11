@@ -8,18 +8,36 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #4265ff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #018a943a;
+}
+.card{
+  border: solid;
+  background-color: pink;
+  border-color: pink ;
+  border-width: 2px;
 }
 
 .App-link {
   color: #61dafb;
+}
+h2 {
+  color: #3379d6;
+}
+h3 {
+  color: #8eb7ec;
+}
+.list-item{
+  font-size: 40px;
+}
+.card{
+  backgroundColor: rgb(8, 8, 8) ;
 }
 
 @keyframes App-logo-spin {
