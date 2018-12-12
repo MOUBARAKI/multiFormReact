@@ -29,6 +29,9 @@ export class InsertForm extends Component {
             onChange={handleChange('firstName')}
             defaultValue={values.firstName}
           />
+          <div style={{ fontSize: 12, color: "red" }}>
+            {values.nameError}
+          </div>
           <br />
           <TextField
             hintText="Enter Your Last Name"
@@ -36,6 +39,9 @@ export class InsertForm extends Component {
             onChange={handleChange('lastName')}
             defaultValue={values.lastName}
           />
+          <div style={{ fontSize: 12, color: "red" }}>
+            {values.lastNameError}
+          </div>
           <br />
           <TextField
             hintText="Enter Your Email"
@@ -43,6 +49,9 @@ export class InsertForm extends Component {
             onChange={handleChange('email')}
             defaultValue={values.email}
           />
+          <div style={{ fontSize: 12, color: "red" }}>
+            {values.emailError}
+          </div>
           <br />
           <TextField
             hintText="Enter Your Phone Number"
@@ -50,6 +59,9 @@ export class InsertForm extends Component {
             onChange={handleChange('phoneNumber')}
             defaultValue={values.phoneNumber}
           />
+          <div style={{ fontSize: 12, color: "red" }}>
+            {values.phoneNumberError}
+          </div>
      <br />
       <RaisedButton
             label="Continue"
