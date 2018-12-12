@@ -65,6 +65,9 @@ export class ModifyForm extends Component {
             onChange={handleChange('phoneNumber')}
             defaultValue={values.phoneNumber}
           />
+          <div style={{ fontSize: 12, color: "red" }}>
+            {values.phoneNumberError}
+          </div>
            <br/>
            
           <tr >

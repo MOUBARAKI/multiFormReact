@@ -25,8 +25,15 @@ export class GlobalForm extends Component {
     if (isValid) {
    const { step } = this.state;
     this.setState({
-      step: step + 1
+      step: step + 1,
+      emailError :'',
+      phoneNumberError:'',
+      nameError :'',
+      lastNameError : ""
+
+    
     });
+    
   }
   
   
