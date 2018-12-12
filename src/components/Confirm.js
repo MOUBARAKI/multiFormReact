@@ -4,8 +4,8 @@ import '../App.css';
 
 import Stepper from 'react-stepper-horizontal';
 import { List, ListItem ,ListItemText} from 'material-ui/List';
-import RaisedButton from 'material-ui/RaisedButton';
-import { Card } from 'material-ui';
+import {Button} from './GenralParts';
+import { Card } from './GenralParts';
 
 export class Confirm extends Component {
   continue = e => {
@@ -23,7 +23,7 @@ export class Confirm extends Component {
     const { values ,handleChange} = this.props;
     return (
       <MuiThemeProvider>
-        <Card  align ='center'>
+        <Card >
         <div>
       <Stepper  steps={ [{title: 'Insert your information'}, {title: 'Modify your informations'}, {title: 'Confirm you informations'}] } activeStep={ 2 } defaultColor={'#4265ff'} completeColor={'#018a947e'} completeBarColor={'#018a947e'} activeColor={'rgb(62, 217, 228)'} />
     </div>
@@ -31,34 +31,28 @@ export class Confirm extends Component {
 
         <React.Fragment>
           <List>
-            <a value='' onDoubleClick={handleChange('firstName')}><ListItem container='list-item' primaryText={values.firstName}><h3>
+            <a value='' onDoubleClick={handleChange('firstName')}><ListItem container='list-item' primaryText={values.firstName}><h4>
               First Name
-            </h3></ListItem></a>
-            <a value='' onDoubleClick={handleChange('lastName')}><ListItem primaryText={values.lastName}><h3>Last Name
-            </h3></ListItem></a>
-            <a value='' onDoubleClick={handleChange('email')}><ListItem primaryText={values.email}><h3>Email
-            </h3></ListItem></a>
-            <a value='' onDoubleClick={handleChange('phoneNumber')}><ListItem primaryText={values.phoneNumber}><h3>Phone Number
-            </h3></ListItem></a>
+            </h4></ListItem></a>
+            <a value='' onDoubleClick={handleChange('lastName')}><ListItem primaryText={values.lastName}><h4>Last Name
+            </h4></ListItem></a>
+            <a value='' onDoubleClick={handleChange('email')}><ListItem primaryText={values.email}><h4>Email
+            </h4></ListItem></a>
+            <a value='' onDoubleClick={handleChange('phoneNumber')}><ListItem primaryText={values.phoneNumber}><h4>Phone Number
+            </h4></ListItem></a>
 
           </List>
           <br />
-          <tr  >
-            <td align='center'>
-          <RaisedButton
-            label="Back"
+
+          <Button
             primary={false}
-            style={styles.button}
             onClick={this.back}
-          />
-          </td>
-          <RaisedButton
-            label="Confirm & Continue"
+          >Back</Button>
+
+          <Button
             primary={true}
-            style={styles.button}
-          />
+          >Confirm</Button>
           
-          </tr>
         </React.Fragment>
         </Card>
       </MuiThemeProvider>
@@ -66,10 +60,6 @@ export class Confirm extends Component {
   }
 }
 
-const styles = {
-  button: {
-    margin: 15
-  }
-};
+
 
 export default Confirm;

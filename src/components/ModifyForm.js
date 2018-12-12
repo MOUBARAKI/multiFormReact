@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
+import {Card,Text,Label,Button,Err} from'./GenralParts';
 import '../App.css';
 
 import Stepper from 'react-stepper-horizontal';
 
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
-import { Card } from 'material-ui';
 
 export class ModifyForm extends Component {
   continue = e => {
@@ -22,82 +18,82 @@ export class ModifyForm extends Component {
   render() {
     const { values , handleChange } = this.props;
     return (
-      <MuiThemeProvider>
-        <Card align='center'>
-           <div>
+      
+     <form>
+       <Card>
+         
       <Stepper steps={ [{title: 'Insert your information'}, {title: 'Modify your informations'}, {title: 'Confirm you informations'}] } activeStep={ 1 } defaultColor={'#4265ff'} completeColor={'#018a947e'} completeBarColor={'#018a947e'} activeColor={'rgb(62, 217, 228)'} />
-    </div>
+     
         <React.Fragment>
           <h2 class='h2'>Modify User Details</h2>
-          <TextField
-            hintText="Enter Your First Name"
-            floatingLabelText="First Name"
+          <br/>
+        <div>  
+          <Text type ="text"
+                       
             onChange={handleChange('firstName')}
-            defaultValue={values.firstName}
+            value = {values.firstName}
           />
-          <div style={{ fontSize: 12, color: "red" }}>
+        <br/>
+        <Label for={values.firstName} >Enter Your Name</Label>
+
+          <Err>
             {values.nameError}
+            </Err>
           </div>
-          <br />
-          <TextField
-            hintText="Enter Your Last Name"
-            floatingLabelText="Last Name"
-            onChange={handleChange('lastName')}
-            defaultValue={values.lastName}
-          />
-          <div style={{ fontSize: 12, color: "red" }}>
-            {values.lastNameError}
-          </div>
-          <br />
-          <TextField
-            hintText="Enter Your Email"
-            floatingLabelText="Email"
-            onChange={handleChange('email')}
-            defaultValue={values.email}
-          />
-          <div style={{ fontSize: 12, color: "red" }}>
-            {values.emailError}
-          </div>
-          <br />
-          <TextField
-            hintText="Enter Your Phone Number"
-            floatingLabelText="Phone Number"
-            onChange={handleChange('phoneNumber')}
-            defaultValue={values.phoneNumber}
-          />
-          <div style={{ fontSize: 12, color: "red" }}>
-            {values.phoneNumberError}
-          </div>
-           <br/>
-           
-          <tr >
-           <td align='center'>   
-          <RaisedButton
-            label="Back"
-            primary={false}
-            style={styles.button}
-            onClick={this.back}
-          />
-          <RaisedButton
-            label="Continue"
-            primary={true}
-            style={styles.button}
-            onClick={this.continue}
-          />
-          </td>
-          </tr >
+
+          <br/>
           
-        </React.Fragment>
-        </Card>
-      </MuiThemeProvider>
-    );
+          <div>
+          <Text type='text'
+            onChange={handleChange('lastName')}
+            value={values.lastName}
+          />
+           <br/><Label  >Enter Your Last Name</Label>
+           <Err>
+            {values.lastNameError}
+            </Err>
+          </div>
+          <br />
+          <div>
+          <Text
+            onChange={handleChange('email')}
+            value={values.email}
+          />
+           <br/><Label for={values.firstName} >Enter Your Email</Label>
+           <Err>
+            {values.emailError}
+            </Err>
+          </div>
+          <br />
+          <div>
+          <Text
+            onChange={handleChange('phoneNumber')}
+            value={values.phoneNumber}
+          />
+           <br/><Label for={values.firstName} >Enter Your Phone Number</Label>
+           <Err>
+            {values.phoneNumberError}
+            </Err>
+     <br />
+     
+     <Button
+            
+            onClick={this.back}>Back</Button>
+      <Button
+            primary
+            onClick={this.continue}>
+            Continue
+            </Button>
+            </div>
+      </React.Fragment>
+      
+      </Card>
+
+      </form>
+        );
   }
+   
 }
 
-const styles = {
-  button: {
-    margin: 15
-  }
-};
 
 export default ModifyForm;

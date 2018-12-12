@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import '../App.css';
 import Stepper from 'react-stepper-horizontal';
-
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
-import { Card } from 'material-ui';
+import {Card,Text,Label,Button,Err} from'./GenralParts';
 
 export class InsertForm extends Component {
   continue = e => {
@@ -16,70 +12,83 @@ export class InsertForm extends Component {
   render() {
     const { values, handleChange } = this.props;
     return (
-      <MuiThemeProvider>
-      <Card>
-     <div>
+      
+     <form>
+       <Card>
+         
       <Stepper steps={ [{title: 'Insert your information'}, {title: 'Modify your informations'}, {title: 'Confirm you informations'}] } activeStep={ 0 } defaultColor={'#4265ff'} completeColor={'#018a947e'} completeBarColor={'#018a947e'} activeColor={'rgb(62, 217, 228)'} />
-     </div>
+     
         <React.Fragment>
-          <h2 class='h2'>Enter User Details</h2>
-          <TextField
-            hintText="Enter Your First Name"
-            floatingLabelText="First Name"
+          <h2 class='h2'>Insert User Details</h2>
+          <br/>
+        <div>  
+          <Text type ="text"
+                       
             onChange={handleChange('firstName')}
-            defaultValue={values.firstName}
+            value = {values.firstName}
           />
-          <div style={{ fontSize: 12, color: "red" }}>
-            {values.nameError}
+        <br/>
+        <Label for={values.firstName} >Enter Your Name</Label>
+
+<Err >           {values.nameError}
+</Err>
+      
           </div>
-          <br />
-          <TextField
-            hintText="Enter Your Last Name"
-            floatingLabelText="Last Name"
+
+          <br/>
+          
+          <div>
+          <Text type='text'
             onChange={handleChange('lastName')}
-            defaultValue={values.lastName}
+            value={values.lastName}
           />
-          <div style={{ fontSize: 12, color: "red" }}>
+           <br/><Label  >Enter Your Last Name</Label>
+         <Err>
             {values.lastNameError}
+            </Err>
           </div>
           <br />
-          <TextField
-            hintText="Enter Your Email"
-            floatingLabelText="Email"
+          <div>
+          <Text
             onChange={handleChange('email')}
-            defaultValue={values.email}
+            value={values.email}
           />
-          <div style={{ fontSize: 12, color: "red" }}>
+           <br/><Label for={values.firstName} >Enter Your Email</Label>
+          <Err>
             {values.emailError}
+          </Err>
           </div>
           <br />
-          <TextField
-            hintText="Enter Your Phone Number"
-            floatingLabelText="Phone"
+          <div>
+          <Text
             onChange={handleChange('phoneNumber')}
-            defaultValue={values.phoneNumber}
+            value={values.phoneNumber}
           />
-          <div style={{ fontSize: 12, color: "red" }}>
+           <br/><Label for={values.firstName} >Enter Your Phone Number</Label>
+          <Err>
             {values.phoneNumberError}
-          </div>
+          </Err>
      <br />
-      <RaisedButton
-            label="Continue"
-            primary={true}
+     </div>
+      <Button
+            primary
             style={styles.button}
-            onClick={this.continue}
-          />
+            onClick={this.continue}>
+            Continue
+            </Button>
           
       </React.Fragment>
-        </Card>
-      </MuiThemeProvider>
-    );
+      
+      </Card>
+
+      </form>
+        );
   }
 }
 
 const styles = {
   button: {
-    margin: 15
+    margin: 20
   }
 };
 
